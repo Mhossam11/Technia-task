@@ -115,7 +115,7 @@ const employeeStats = [
       }
     </div>
     {/* Employee Stats */}
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {employeeStats.map((stat, index) => (
         <Card
           key={index}
