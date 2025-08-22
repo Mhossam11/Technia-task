@@ -20,7 +20,9 @@ const RootLayout = ({}: IProps) => {
 			<Sidebar mobileOpen={mobileOpen} onMobileOpenChange={setMobileOpen} />
 			<div className={`flex-1 flex flex-col transition-all duration-300 ${mobileOpen ? 'ml-64 md:ml-0' : ''}`}>
 				<Navbar onOpenSidebar={() => setMobileOpen(true)}>
-					<Outlet />
+					<div className="grid grid-cols-12">
+						<Outlet />
+						</div>
 				</Navbar>
 			</div>
 		</div>
