@@ -18,7 +18,7 @@ export default function HrDashboard() {
 
 
   return (
-    <div className="p-6 space-y-8 bg-white min-h-screen">
+    <div className="col-span-12 p-6 space-y-8 bg-white min-h-screen">
       {/* Employee Stats */}
       <section>
         <h2 className="text-xl font-bold text-yellow-700 mb-4">Employee Stats</h2>

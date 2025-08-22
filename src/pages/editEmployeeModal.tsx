@@ -1,4 +1,4 @@
-// addEmployeeModal.tsx
+// EditEmployeeModal.tsx
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Edit } from "lucide-react";
 import { Employee } from "@/data/mockData";
 
-interface AddEmployeeModalProps {
+interface EditEmployeeModalProps {
   isDialogOpen: boolean;
   setIsDialogOpen: (open: boolean) => void;
   editingEmployee: Employee | null;
@@ -23,7 +23,7 @@ interface AddEmployeeModalProps {
   employee: Employee; // <-- the employee row
 }
 
-const AddEmployeeModal = ({
+const EditEmployeeModal = ({
   isDialogOpen,
   setIsDialogOpen,
   formData,
@@ -31,7 +31,7 @@ const AddEmployeeModal = ({
   handleSave,
   handleEditEmployee,
   employee,
-}: AddEmployeeModalProps) => {
+}: EditEmployeeModalProps) => {
   return (
 <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
   <DialogTrigger asChild>
@@ -119,13 +119,13 @@ const AddEmployeeModal = ({
       <Button
         variant="outline"
         onClick={() => setIsDialogOpen(false)}
-        className="rounded-xl border-yellow-300 text-yellow-600 hover:bg-yellow-50"
-      >
+        className="rounded-xl border-amber-300 text-amber-600 hover:bg-amber-50"
+        >
         Cancel
       </Button>
       <Button
-        className="rounded-xl bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-white shadow-md hover:shadow-lg transition-all duration-200"
-        onClick={handleSave}
+            className="rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white shadow-md hover:shadow-lg transition-all duration-200"
+            onClick={handleSave}
       >
         Save Changes
       </Button>
@@ -136,4 +136,4 @@ const AddEmployeeModal = ({
   );
 };
 
-export default AddEmployeeModal;
+export default EditEmployeeModal;

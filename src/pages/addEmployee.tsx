@@ -164,14 +164,17 @@ const AddEmployees = () => {
           </div>
 
           <DialogFooter>
-            <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
+            <Button 
+            className="rounded-xl border-amber-300 text-amber-600 hover:bg-amber-50"
+            variant="outline" onClick={() => setIsDialogOpen(false)}
+            >
               Cancel
             </Button>
             <Button
               onClick={handleSave}
-              className="bg-yellow-500 hover:bg-yellow-600 text-white"
-            >
-              {editingEmployee ? "Update" : "Add"} Employee
+              className="rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white shadow-md hover:shadow-lg transition-all duration-200"
+              >
+              Add Employee
             </Button>
           </DialogFooter>
         </DialogContent>

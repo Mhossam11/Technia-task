@@ -18,7 +18,7 @@ import {
 export default function Dashboard() {
   // window.location.reload()
   return (
-    <div className="space-y-8 p-5">
+    <div className="space-y-8 p-5 col-span-12">
       {/* Overview Stats */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <Card className="bg-gradient-to-br from-amber-50/50 to-yellow-50/50 dark:from-amber-950/20 dark:to-yellow-950/20 border-amber-200/50 dark:border-amber-700/30 hover:shadow-lg transition-all duration-300">

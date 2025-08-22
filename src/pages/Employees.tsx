@@ -13,7 +13,7 @@ import {  Search, Trash2, Mail, Phone, Users, UserCheck, UserMinus, UserPlus } f
 import { mockEmployees, Employee } from "@/data/mockData";
 import AddEmployees from "./addEmployee";
 import { getCookie } from "@/lib/cookies";
-import AddEmployeeModal from "./addEmployeeModal";
+import EditEmployeeModal from "./editEmployeeModal";
 
 const Employees = () => {
   
@@ -209,15 +209,7 @@ const employeeStats = [
                   (role === "HR Manager" || role === "Admin") && (
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
-                      {/* <Button
-                      variant="ghost"
-                      size="sm"
-                      className="text-yellow-600 hover:bg-yellow-100 rounded-lg"
-                      onClick={() => handleEditEmployee(employee)}
-                    >
-                      <Edit className="w-4 h-4" />
-                      </Button> */}
-                      <AddEmployeeModal
+                      <EditEmployeeModal
                         isDialogOpen={isDialogOpen}
                         setIsDialogOpen={setIsDialogOpen}
                         editingEmployee={editingEmployee}

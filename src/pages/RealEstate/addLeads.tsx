@@ -51,7 +51,7 @@ const AddLeads = () => {
               Add Lead
             </Button>
           </DialogTrigger>
-          <DialogContent className="max-w-md max-h-[calc(95vh)] bg-white border border-amber-200 shadow-lg rounded-xl overflow-auto">
+          <DialogContent className="max-w-xs max-h-[calc(70vh)] md:max-w-md md:max-h-[calc(95vh)] bg-white border border-amber-200 shadow-lg rounded-xl overflow-auto">
             <DialogHeader>
               <DialogTitle className="text-amber-700 text-xl">Add New Lead</DialogTitle>
             </DialogHeader>
@@ -178,14 +178,14 @@ const AddLeads = () => {
               <Button
                 variant="ghost"
                 onClick={() => setOpen(false)}
-                className="text-gray-600 hover:text-gray-800 hover:bg-gray-100"
-              >
+                className="rounded-xl border border-amber-300 text-amber-600 hover:bg-amber-50"
+                >
                 Cancel
               </Button>
               <Button
                 onClick={handleAddLead}
-                className="bg-amber-500 hover:bg-amber-600 text-white rounded-lg shadow-md"
-              >
+                className="rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white shadow-md hover:shadow-lg transition-all duration-200"
+                >
                 Save Lead
               </Button>
             </DialogFooter>

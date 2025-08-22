@@ -62,7 +62,7 @@ const AddActions = () => {
 
       {/* Add Action Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-md bg-white">
+        <DialogContent className="md:max-w-md bg-white">
           <DialogHeader>
             <DialogTitle className="text-yellow-700">Add New Action</DialogTitle>
           </DialogHeader>
@@ -119,8 +119,8 @@ const AddActions = () => {
           </div>
           <DialogFooter>
             <Button
-              className="bg-yellow-500 hover:bg-yellow-600 text-white"
-              onClick={handleAddAction}
+            className="rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white shadow-md hover:shadow-lg transition-all duration-200"
+            onClick={handleAddAction}
             >
               Add Action
             </Button>

@@ -12,7 +12,7 @@ export default function RealEstateDashboard() {
   ];
 
   return (
-<div className="p-6 space-y-10 bg-white min-h-screen">
+<div className="col-span-12 p-6 space-y-10 bg-white min-h-screen">
   {/* Real Estate Stats */}
   <section>
     <h2 className="text-xl font-bold text-yellow-700 mb-6">Real Estate Stats</h2>
