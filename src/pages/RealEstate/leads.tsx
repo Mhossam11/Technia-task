@@ -83,14 +83,14 @@ const leadStats = [
   };
 
   return (
-<div className="space-y-6 animate-fade-in">
+<div className="space-y-6 animate-fade-in col-span-12">
   {/* Header */}
   <div className="flex items-center justify-between">
     <div>
       <h1 className="text-3xl font-bold bg-gradient-to-r from-amber-500 to-amber-700 bg-clip-text text-transparent">
         Leads
       </h1>
-      <p className="text-gray-500">Manage your sales pipeline and prospects</p>
+      <p className="text-gray-500">Manage your sales and prospects</p>
     </div>
     {
       (role === "Real Estate Agent" || role === "Admin") && (
