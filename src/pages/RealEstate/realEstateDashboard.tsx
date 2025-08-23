@@ -105,28 +105,26 @@ const leadStats = [
   <section>
     <h2 className="text-xl font-bold text-yellow-700 mb-6">Real Estate Stats</h2>
     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-  {realEstateStats.map((stat, index) => (
-    <Card
-      key={index}
-      className={`${stat.colors.bg} ${stat.colors.border} rounded-2xl shadow-sm hover:shadow-md transition`}
-    >
-      <CardHeader className="flex flex-row items-center justify-between pb-2">
-        <CardTitle className={`text-sm font-medium ${stat.colors.text}`}>
-          {stat.title}
-        </CardTitle>
-        {stat.icon}
-      </CardHeader>
-      <CardContent>
-        <div className={`text-2xl font-bold ${stat.colors.text}`}>{stat.value}</div>
-        <p className="text-xs text-gray-500 dark:text-gray-400">{stat.description}</p>
-      </CardContent>
-    </Card>
-  ))}
-</div>
-
-
+      {realEstateStats.map((stat, index) => (
+        <Card
+          key={index}
+          className={`${stat.colors.bg} ${stat.colors.border} rounded-2xl shadow-sm hover:shadow-md transition`}
+        >
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
+            <CardTitle className={`text-sm font-medium ${stat.colors.text}`}>
+              {stat.title}
+            </CardTitle>
+            {stat.icon}
+          </CardHeader>
+          <CardContent>
+            <div className={`text-2xl font-bold ${stat.colors.text}`}>{stat.value}</div>
+            <p className="text-xs text-gray-500 dark:text-gray-400">{stat.description}</p>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
     {/* Leads Section */}
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-5">
       {/* Recent Leads */}
       <Card className="bg-gradient-to-br from-yellow-50 to-white border border-yellow-200 rounded-2xl shadow-sm hover:shadow-md transition">
         <CardHeader>

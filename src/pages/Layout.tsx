@@ -9,7 +9,7 @@ interface IProps {
 const RootLayout = ({}: IProps) => {
 	const [mobileOpen, setMobileOpen] = useState<boolean>(false)
 	return(
-		<div className="max-h-screen flex  overflow-y-auto md:overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none][&::-webkit-scrollbar]:hidden ">
+		<div className="max-h-screen min-h-screen flex  overflow-y-auto md:overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none][&::-webkit-scrollbar]:hidden">
 			{/* Mobile backdrop overlay */}
 			{mobileOpen && (
 				<div

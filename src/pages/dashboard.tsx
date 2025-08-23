@@ -144,7 +144,7 @@ const stats2 = [
 export default function Dashboard() {
   // window.location.reload()
   return (
-    <div className="space-y-8 p-5 col-span-12">
+    <div className="space-y-8 col-span-12 ">
       {/* Overview Stats */}
       <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
         {hrStats.map((stat, i) => {

@@ -13,7 +13,7 @@ const Navbar = ({ children, onOpenSidebar }: IProps) => {
   const email=parsed_user.username
     return(
         <div className="flex-1 flex flex-col">
-        <header className="border-b bg-card/50 backdrop-blur-sm border-border/50 shadow-sm">
+        <header className="border-b bg-card/50 backdrop-blur-sm border-border/50 shadow-sm border-yellow-500">
           <div className="px-6 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
@@ -36,15 +36,15 @@ const Navbar = ({ children, onOpenSidebar }: IProps) => {
                   <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-700 to-yellow-600 dark:from-amber-400 dark:to-yellow-300 bg-clip-text text-transparent">
                     Technia
                   </h1>
-                  <p className="text-sm text-muted-foreground">Enterprise Management System</p>
+                  <p className="text-sm text-muted-foreground text-yellow-800">Enterprise Management System</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="hidden md:flex items-center gap-2 px-3 py-2 rounded-lg bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-950/30 dark:to-yellow-950/30 border border-amber-200/50 dark:border-amber-700/30">
                   <User className="h-4 w-4 text-amber-600 dark:text-amber-400" />
                   <div className="text-sm">
-                    <span className="text-muted-foreground">Welcome, </span>
-                    <span className="font-medium text-foreground">{email}</span>
+                    <span className="text-muted-foreground text-yellow-800">Welcome, </span>
+                    <span className="font-medium text-foreground text-yellow-900">{email}</span>
                   </div>
                 </div>
                 <Button 
