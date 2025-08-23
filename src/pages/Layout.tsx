@@ -9,7 +9,7 @@ interface IProps {
 const RootLayout = ({}: IProps) => {
 	const [mobileOpen, setMobileOpen] = useState<boolean>(false)
 	return(
-		<div className="min-h-screen flex">
+		<div className="max-h-screen flex  overflow-y-auto md:overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none][&::-webkit-scrollbar]:hidden ">
 			{/* Mobile backdrop overlay */}
 			{mobileOpen && (
 				<div
@@ -20,7 +20,7 @@ const RootLayout = ({}: IProps) => {
 			<Sidebar mobileOpen={mobileOpen} onMobileOpenChange={setMobileOpen} />
 			<div className={`flex-1 flex flex-col transition-all duration-300 ${mobileOpen ? 'ml-64 md:ml-0' : ''}`}>
 				<Navbar onOpenSidebar={() => setMobileOpen(true)}>
-					<div className="grid grid-cols-12">
+					<div className="grid grid-cols-12 ">
 						<Outlet />
 						</div>
 				</Navbar>

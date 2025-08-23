@@ -36,7 +36,7 @@ export default function LoginPage() {
 
 	return (
 		<div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-950/20 dark:to-yellow-950/20">
-			<Card className="w-full max-w-sm border-amber-200/60 dark:border-amber-700/40 shadow-lg">
+			<Card className="w-full max-w-xs md:max-w-sm border-amber-200/60 dark:border-amber-700/40 shadow-xl bg-yellow-500/10 shadow-amber-900/40">
 				<CardHeader>
 					<CardTitle className="text-center bg-gradient-to-r from-amber-700 to-yellow-600 dark:from-amber-400 dark:to-yellow-300 bg-clip-text text-transparent">Welcome to Technia</CardTitle>
 					<CardDescription className="text-center">Sign in to continue</CardDescription>
@@ -49,7 +49,7 @@ export default function LoginPage() {
 								type="text"
 								value={username}
 								onChange={(e) => setUsername(e.target.value)}
-								className="w-full rounded-md border border-amber-200/60 dark:border-amber-700/40 bg-card px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+								className="w-full rounded-md border border-amber-200/60 dark:border-amber-700/40 bg-card px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500/50 "
 								placeholder="Enter username"
 								required
 							/>
@@ -73,7 +73,6 @@ export default function LoginPage() {
 						>
 							{loading ? "Signing in..." : "Sign In"}
 						</Button>
-						<p className="text-xs text-muted-foreground text-center">Use demo: admin01 / Admin@123</p>
 					</form>
 				</CardContent>
 			</Card>

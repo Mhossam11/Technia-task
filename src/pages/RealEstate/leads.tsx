@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import {  Search, UserPlus, Phone, Mail, DollarSign, Edit, Trash } from "lucide-react";
+import {  Search, Phone, Mail, Edit, Trash } from "lucide-react";
 import { mockLeads, Lead } from "@/data/mockData";
 import AddLeads from "./addLeads";
 import { getCookie } from "@/lib/cookies";
@@ -22,33 +22,7 @@ const [statusFilter, setStatusFilter] = useState<string>("all");
   const handleDeleteLead = (leadId: string) => {
     setLeads(leads.filter((lead) => lead.id !== leadId));
   }
-// Leads stats array
-const leadStats = [
-  {
-    title: "Total Leads",
-    icon: <UserPlus className="h-4 w-4 text-amber-500" />,
-    value: 120, // static number
-    description: "Active pipeline",
-  },
-  {
-    title: "Pipeline Value",
-    icon: <DollarSign className="h-4 w-4 text-amber-500" />,
-    value: "$1.2M", // static string
-    description: "Total opportunity",
-  },
-  {
-    title: "Closed Deals",
-    icon: <UserPlus className="h-4 w-4 text-amber-500" />,
-    value: 15, // static number
-    description: "This month",
-  },
-  {
-    title: "Conversion Rate",
-    icon: <UserPlus className="h-4 w-4 text-amber-500" />,
-    value: "25%", // static percentage
-    description: "Success rate",
-  },
-];
+
   const filteredLeads = leads.filter((lead) => {
     const matchesSearch =
       lead.clientName.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -83,7 +57,7 @@ const leadStats = [
   };
 
   return (
-<div className="space-y-6 animate-fade-in col-span-12">
+<div className="space-y-6 animate-fade-in col-span-12 ">
   {/* Header */}
   <div className="flex items-center justify-between">
     <div>
@@ -98,24 +72,6 @@ const leadStats = [
       )
     }  
   </div>
-
-{/* Lead Stats */}
-<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-  {leadStats.map((stat, index) => (
-    <Card
-      key={index}
-      className="bg-gradient-to-br from-yellow-50 to-white border border-yellow-200 rounded-2xl shadow-sm hover:shadow-md transition">
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium text-gray-600">{stat.title}</CardTitle>
-        {stat.icon}
-      </CardHeader>
-      <CardContent>
-        <div className="text-2xl font-bold text-amber-700">{stat.value}</div>
-        <p className="text-xs text-gray-500">{stat.description}</p>
-      </CardContent>
-    </Card>
-  ))}
-</div>
 
   {/* Search and Filters */}
   <Card className="bg-white border border-amber-200 shadow-sm">
@@ -152,7 +108,7 @@ const leadStats = [
   </Card>
 
   {/* Leads Table */}
-  <Card className="bg-white border border-amber-200 shadow-sm">
+  <Card className="bg-white border border-amber-200 shadow-sm max-h-[50vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none][&::-webkit-scrollbar]:hidden">
     <CardHeader>
       <CardTitle className="text-amber-700">Lead Pipeline</CardTitle>
       <CardDescription>

@@ -19,33 +19,6 @@ const Actions = () => {
   const [typeFilter, setTypeFilter] = useState<string>("all");
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [editingAction, setEditingAction] = useState<Action | null>(null);
-// Actions stats array
-const actionStats = [
-  {
-    title: "Total Actions",
-    icon: <Calendar className="h-4 w-4 text-yellow-500" />,
-    value: 120, // static value
-    description: "All time",
-  },
-  {
-    title: "Scheduled",
-    icon: <Clock className="h-4 w-4 text-yellow-500" />,
-    value: 45, // static value
-    description: "Upcoming",
-  },
-  {
-    title: "Completed",
-    icon: <CheckCircle className="h-4 w-4 text-yellow-500" />,
-    value: 65, // static value
-    description: "Finished",
-  },
-  {
-    title: "Today",
-    icon: <Calendar className="h-4 w-4 text-yellow-500" />,
-    value: 10, // static value
-    description: "Due today",
-  },
-];
 
 const handleDeleteAction = (id: string) => {
   if (window.confirm("Are you sure you want to delete this action?")) {
@@ -102,24 +75,6 @@ const handleDeleteAction = (id: string) => {
           )
         }
       </div>
-
-      {/* Action Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {actionStats.map((stat, index) => (
-          <Card
-            key={index}
-            className="bg-gradient-to-br from-yellow-50 to-white border border-yellow-200 rounded-2xl shadow-sm hover:shadow-md transition">
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-yellow-700">{stat.title}</CardTitle>
-              {stat.icon}
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-yellow-600">{stat.value}</div>
-              <p className="text-xs text-gray-500">{stat.description}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
       {/* Search and Filters */}
       <Card className="shadow-md border border-yellow-200 hover:shadow-lg transition">
         <CardHeader>
@@ -165,7 +120,7 @@ const handleDeleteAction = (id: string) => {
       </Card>
 
       {/* Actions Table */}
-      <Card className="shadow-md border border-yellow-200 hover:shadow-lg transition">
+      <Card className="shadow-md border border-yellow-200 hover:shadow-lg transition max-h-[50vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none][&::-webkit-scrollbar]:hidden">
         <CardHeader>
           <CardTitle className="text-yellow-700">Action Items</CardTitle>
           <CardDescription className="text-gray-500">
@@ -260,7 +215,6 @@ const handleDeleteAction = (id: string) => {
               setIsEditOpen(false);
             }}
           />
-
         </CardContent>
       </Card>
     </div>

@@ -3,39 +3,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import {  Search, DollarSign, TrendingUp, Calendar, Edit, Trash } from "lucide-react";
+import {  Search, Edit, Trash } from "lucide-react";
 import { mockSalaries, Salary } from "@/data/mockData";
 import AddSalaries from "./addSalaries";
 import { getCookie } from "@/lib/cookies";
 import EditSalaryModal from "./editSalaryModal";
 import { Button } from "@/components/ui/button";
 
-const stats = [
-    {
-      title: "Total Payroll",
-      icon: <DollarSign className="h-4 w-4 text-yellow-600" />,
-    //   value: `$${totalPayroll.toLocaleString()}`,
-      description: "This period",
-    },
-    {
-      title: "Pending Payments",
-      icon: <Calendar className="h-4 w-4 text-yellow-600" />,
-    //   value: pendingPayments,
-      description: "Require processing",
-    },
-    {
-      title: "Avg Salary",
-      icon: <TrendingUp className="h-4 w-4 text-yellow-600" />,
-    //   value: `$${Math.round(totalPayroll / salaries.length).toLocaleString()}`,
-      description: "Per employee",
-    },
-    {
-      title: "Processed",
-      icon: <DollarSign className="h-4 w-4 text-yellow-600" />,
-    //   value: salaries.filter((s) => s.status === "paid").length,
-      description: "Successfully paid",
-    },
-  ];
 const Salaries = () => {
 
   const [salaries, setSalaries] = useState<Salary[]>(mockSalaries);
@@ -94,23 +68,6 @@ const Salaries = () => {
     }
   </div>
 
-  {/* Stats */}
- <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      {stats.map((stat, index) => (
-        <Card
-          key={index}
-          className="bg-gradient-to-br from-yellow-50 to-white border border-yellow-200 rounded-2xl shadow-sm hover:shadow-md transition"
-        >
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-neutral-700">{stat.title}</CardTitle>
-            {stat.icon}
-          </CardHeader>
-          <CardContent>
-            <p className="text-xs text-neutral-500">{stat.description}</p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
   {/* Search */}
   <Card className="bg-white border border-yellow-100 shadow-sm">
     <CardHeader>
@@ -130,7 +87,7 @@ const Salaries = () => {
   </Card>
 
   {/* Salaries Table */}
-  <Card className="bg-white border border-yellow-100 shadow-sm">
+  <Card className="bg-white border border-yellow-100 shadow-sm max-h-[50vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none][&::-webkit-scrollbar]:hidden">
     <CardHeader>
       <CardTitle className="text-yellow-700">Salary Records</CardTitle>
       <CardDescription className="text-neutral-600">

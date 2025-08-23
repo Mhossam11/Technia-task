@@ -2,19 +2,63 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCookie } from "@/lib/cookies";
-import { Users, UserCheck, UserX, DollarSign } from "lucide-react";
+import { Users, UserCheck, UserX, DollarSign, UserPlus } from "lucide-react";
 
 export default function HrDashboard() {
   const role = getCookie("role")
   console.log(role)
   // Static Employee Stats
   const employeeStats = [
-    { title: "Total Employees", value: 120, description: "Active workforce", icon: <Users className="h-5 w-5 text-yellow-600" /> },
-    { title: "Active", value: 95, description: "Currently working", icon: <UserCheck className="h-5 w-5 text-yellow-600" /> },
-    { title: "On Leave", value: 15, description: "Approved leaves", icon: <UserX className="h-5 w-5 text-yellow-600" /> },
-    { title: "New Hires", value: 10, description: "Joined this month", icon: <Users className="h-5 w-5 text-yellow-600" /> },
+    {
+      title: "Total Employees",
+      value: 120,
+      description: "Active workforce",
+      icon: <Users className="h-5 w-5 text-blue-600 dark:text-blue-400" />,
+      colors: {
+        bg: "bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20",
+        border: "border-blue-200/50 dark:border-blue-700/30",
+        text: "text-blue-700 dark:text-blue-300",
+        value: "text-blue-600 dark:text-blue-400",
+      },
+    },
+    {
+      title: "Active",
+      value: 95,
+      description: "Currently working",
+      icon: <UserCheck className="h-5 w-5 text-green-600 dark:text-green-400" />,
+      colors: {
+        bg: "bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20",
+        border: "border-green-200/50 dark:border-green-700/30",
+        text: "text-green-700 dark:text-green-300",
+        value: "text-green-600 dark:text-green-400",
+      },
+    },
+    {
+      title: "On Leave",
+      value: 15,
+      description: "Approved leaves",
+      icon: <UserX className="h-5 w-5 text-red-600 dark:text-red-400" />,
+      colors: {
+        bg: "bg-gradient-to-br from-red-50 to-rose-50 dark:from-red-950/20 dark:to-rose-950/20",
+        border: "border-red-200/50 dark:border-red-700/30",
+        text: "text-red-700 dark:text-red-300",
+        value: "text-red-600 dark:text-red-400",
+      },
+    },
+    {
+      title: "New Hires",
+      value: 10,
+      description: "Joined this month",
+      icon: <UserPlus className="h-5 w-5 text-purple-600 dark:text-purple-400" />,
+      colors: {
+        bg: "bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-950/20 dark:to-violet-950/20",
+        border: "border-purple-200/50 dark:border-purple-700/30",
+        text: "text-purple-700 dark:text-purple-300",
+        value: "text-purple-600 dark:text-purple-400",
+      },
+    },
   ];
-
+  
 
 
   return (
@@ -22,22 +66,28 @@ export default function HrDashboard() {
       {/* Employee Stats */}
       <section>
         <h2 className="text-xl font-bold text-yellow-700 mb-4">Employee Stats</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {employeeStats.map((stat, index) => (
-            <Card
-              key={index}
-              className="bg-gradient-to-br from-yellow-50 to-white border border-yellow-200 rounded-2xl shadow-sm hover:shadow-md transition">
-              <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium text-yellow-700">{stat.title}</CardTitle>
-                {stat.icon}
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-yellow-600">{stat.value}</div>
-                <p className="text-xs text-gray-500">{stat.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {employeeStats.map((stat, index) => (
+          <Card
+            key={index}
+            className={`${stat.colors.bg} ${stat.colors.border} rounded-2xl shadow-sm hover:shadow-md transition`}
+          >
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className={`text-sm font-medium ${stat.colors.text}`}>
+                {stat.title}
+              </CardTitle>
+              {stat.icon}
+            </CardHeader>
+            <CardContent>
+              <div className={`text-2xl font-bold ${stat.colors.value}`}>
+                {stat.value}
+              </div>
+              <p className="text-xs text-gray-500">{stat.description}</p>
+            </CardContent>
+          </Card>
+        ))}
+    </div>
+
       </section>
 
       

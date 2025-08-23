@@ -9,7 +9,7 @@ import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow
 } from "@/components/ui/table";
 
-import {  Search, Trash2, Mail, Phone, Users, UserCheck, UserMinus, UserPlus } from "lucide-react";
+import {  Search, Trash2, Mail, Phone} from "lucide-react";
 import { mockEmployees, Employee } from "@/data/mockData";
 import AddEmployees from "./addEmployee";
 import { getCookie } from "@/lib/cookies";
@@ -18,35 +18,6 @@ import EditEmployeeModal from "./editEmployeeModal";
 const Employees = () => {
   
   const role = getCookie("role")
-  // Employee stats array
-const employeeStats = [
-  {
-    title: "Total Employees",
-    icon: <Users className="h-4 w-4 text-yellow-500" />,
-    value: 120,
-    description: "All departments",
-  },
-  {
-    title: "Active",
-    icon: <UserCheck className="h-4 w-4 text-yellow-500" />,
-    value: 95,
-    description: "Currently employed",
-  },
-  {
-    title: "On Leave",
-    icon: <UserMinus className="h-4 w-4 text-yellow-500" />,
-    value: 15,
-    description: "Temporary leave",
-  },
-  {
-    title: "New Hires",
-    icon: <UserPlus className="h-4 w-4 text-yellow-500" />,
-    value: 10,
-    description: "This month",
-  },
-];
-
-
   const [employees, setEmployees] = useState<Employee[]>(mockEmployees);
   const [searchTerm, setSearchTerm] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -67,8 +38,6 @@ const employeeStats = [
     employee.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
     employee.department.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-
   const handleEditEmployee = (employee: Employee) => {
     setEditingEmployee(employee);
     setFormData({
@@ -81,13 +50,9 @@ const employeeStats = [
     });
     setIsDialogOpen(true);
   };
-
   const handleDeleteEmployee = (id: string) => {
     setEmployees(employees.filter((emp) => emp.id !== id));
   };
-
-
-
   const getStatusBadge = (status: string) => {
     return status === "active" ? (
       <Badge variant="default" className="bg-green-100 text-green-800">
@@ -114,28 +79,6 @@ const employeeStats = [
         )
       }
     </div>
-    {/* Employee Stats */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      {employeeStats.map((stat, index) => (
-        <Card
-          key={index}
-          className="bg-gradient-to-br from-yellow-50 to-white border border-yellow-200 rounded-2xl shadow-sm hover:shadow-md transition"
-        >
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-yellow-700">
-              {stat.title}
-            </CardTitle>
-            {stat.icon}
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-yellow-600">{stat.value}</div>
-            <p className="text-xs text-gray-500">{stat.description}</p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-
-  
     {/* Search and Filters */}
     <Card className="bg-white border border-yellow-200 shadow-sm rounded-2xl">
       <CardHeader>
@@ -159,7 +102,7 @@ const employeeStats = [
     </Card>
 
     {/* Employees Table */}
-    <Card className="bg-white border border-yellow-200 rounded-2xl shadow-sm">
+    <Card className="bg-white border border-yellow-200 rounded-2xl shadow-sm max-h-[50vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none][&::-webkit-scrollbar]:hidden">
       <CardHeader>
         <CardTitle className="text-yellow-700">Employee Directory</CardTitle>
         <CardDescription className="text-gray-600">
