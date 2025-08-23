@@ -8,9 +8,9 @@ import {
   Users,
   UserCheck,
   Shield,
-  Activity,
   TrendingUp,
   Target,
+  Home,
 } from "lucide-react"
 import { Wrench, CalendarClock, DollarSign } from "lucide-react";
 
@@ -121,7 +121,7 @@ const stats2 = [
       iconBg: "bg-gradient-to-br from-blue-400/20 to-cyan-500/20",
       icon: "text-blue-600 dark:text-blue-400",
     },
-    icon: Activity,
+    icon: Home,
   },
   {
     title: "Total Leads",
